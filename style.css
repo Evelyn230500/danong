@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đàn Ong Của Pinta</title>
+    <style>
+        /* Thêm màu nền hồng cho trang */
+        body {
+            background-color: #f8c8d8; /* Nền hồng */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Hiệu ứng cho các chữ cái hiển thị lần lượt */
+        .fade-in {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .fade-in:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .fade-in:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .fade-in:nth-child(3) {
+            animation-delay: 1s;
+        }
+        /* Thêm hiệu ứng fade-in */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1, h2, p {
+            margin: 0;
+        }
+
+        .popup {
+            display: none;
+            /* Ẩn popup ban đầu */
+        }
+
+        .popup.active {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxheart">
+        <div class="heart">
+            <!-- Các chữ cái hiện dần -->
+            <h1><span class="fade-in">B</span><span class="fade-in">ấm</span><span class="fade-in"> </span><span class="fade-in">v</span><span class="fade-in">ô</span><span class="fade-in"> </span><span class="fade-in">đ</span><span class="fade-in">i</span><span class="fade-in"> </span><span class="fade-in">c</span><span class="fade-in">á</span><span class="fade-in">c</span> <span class="fade-in">a</span><span class="fade-in">n</span><span class="fade-in">h</span><span class="fade-in">s</span></h1>
+        </div>
+        <div class="beat"></div>
+    </div>
+    <div class="boxchoose">
+        <h2><span class="fade-in">TH</span><span class="fade-in">A</span><span class="fade-in">M</span> <span class="fade-in">G</span><span class="fade-in">I</span><span class="fade-in">A</span> <span class="fade-in">C</span><span class="fade-in">Á</span><span class="fade-in">I</span> <span class="fade-in">N</span><span class="fade-in">À</span><span class="fade-in">Y</span></h2>
+        <div class="listbutton">
+            <button id="no">Never</button>
+            <button id="yes">đồng ý nhoa</button>
+        </div>
+    </div>
+    <div class="popup">
+        <div class="inner">
+            <h3>Hello các anh đàn ÔNG</h3>
+            <img src="love.gif" alt="" />
+            <p>Đứng dậy đưa 2 tay lên trời <span>nếu mí anhs</span> thấy thông điệp này</p>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.querySelector("#no");
+        const yesBtn = document.querySelector("#yes");
+        let boxheart = document.querySelector(".boxheart");
+        let boxchoose = document.querySelector(".boxchoose");
+        let popup = document.querySelector(".popup");
+
+        boxheart.addEventListener("click", function () {
+            boxheart.classList.add("active");
+            boxchoose.classList.add("active");
+        });
+
+        yesBtn.addEventListener("click", function () {
+            popup.classList.add("active");
+        });
+
+        noBtn.addEventListener("mouseenter", () => {
+            const top = Math.floor(Math.random() * window.innerHeight);
+            const left = Math.floor(Math.random() * window.innerWidth);
+
+            noBtn.style.top = `${top}px`;
+            noBtn.style.left = `${left}px`;
+        });
+    </script>
+</body>
+</html>
